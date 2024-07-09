@@ -18,29 +18,29 @@ void bfs(Node* adjList[], int vertices,int startNode, int visited[]);
 int main()
 {
     // Number of vertices in the graph
-    int vertices = 5;
+    printf("Enter number of vertices");
+    int v;
+    scanf("%d",&v);
+    int a,b;
 
     // Adjacency list representation of the graph
-    Node* adjList[vertices];
-    for (int i = 0; i < vertices; ++i)
+    Node* adjList[v];
+    for (int i = 0; i < v; ++i)
+    {
         adjList[i] = NULL;
-
-    // Add edges to the graph
-    addEdge(adjList, 0, 1);
-    addEdge(adjList, 0, 2);
-    addEdge(adjList, 1, 3);
-    addEdge(adjList, 1, 4);
-    addEdge(adjList, 2, 4);
+        scanf("%d%d",&a,&b);
+        addEdge(adjList,a,b);
+    }
 
     // Mark all the vertices as not visited
-    int visited[vertices];
-    for (int i = 0; i < vertices; ++i)
+    int visited[v];
+    for (int i = 0; i < v; ++i)
         visited[i] = 0;
 
     // Perform BFS traversal starting from vertex 0
     printf(
         "Breadth First Traversal starting from vertex 0: ");
-    bfs(adjList, vertices, 0, visited);
+    bfs(adjList, v, 0, visited);
 
     return 0;
 }
